@@ -1,0 +1,32 @@
+meta {
+  name: Q13 — Teste de contrato e checagem de acerto
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:5000/api/orders
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "product": "computer"
+  }
+}
+
+tests {
+  test("Deve criar order com status 201 quando product estiver presente e se tiver estrutura correta id e product computer", function(){
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(201);
+    expect(data).to.have.property("id");
+    expect(data).to.have.property("product");
+    expect(data.product).to.equal("computer");
+  })
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

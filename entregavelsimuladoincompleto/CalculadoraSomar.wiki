@@ -1,0 +1,12 @@
+---
+Test
+---
+!define TEST_SYSTEM {slim}
+!path ./target/classes 
+!path ../1-JUnit/target/classes
+
+!|CalculadoraFixture|
+|numero1|numero2|somar?|
+|2|3|5|
+|10|5|15|
+|7|8|15|

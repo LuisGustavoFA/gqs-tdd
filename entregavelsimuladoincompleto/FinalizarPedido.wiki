@@ -1,0 +1,11 @@
+---
+Test
+---
+!define TEST_SYSTEM {slim}
+!path ./target/classes 
+!path ../1-JUnit/target/classes
+
+!|PedidoFixture|
+|cliente|produto|quantidade|finalizarPedido?|
+|vigarista|laptop|1|sucesso|
+|dick|smartphone|15|sem_estoque|

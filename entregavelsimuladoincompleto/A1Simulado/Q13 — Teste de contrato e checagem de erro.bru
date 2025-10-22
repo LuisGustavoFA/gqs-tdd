@@ -1,0 +1,28 @@
+meta {
+  name: Q13 — Teste de contrato e checagem de erro
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:5000/api/orders
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {}
+}
+
+tests {
+  test("Deve retornar status 400 quando product estiver ausente", function(){
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(400);
+    expect(data).to.have.property("error");
+  })
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

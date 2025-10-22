@@ -1,0 +1,23 @@
+meta {
+  name: Q12 — Teste REST básico
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:5000/api/status
+  body: none
+  auth: inherit
+}
+
+tests {
+  test("Deve retornar status ok", function(){
+    const data = res.getBody();
+    expect(data.status).to.equal("ok");
+  })
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
